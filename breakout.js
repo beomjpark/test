@@ -24,7 +24,7 @@
         this.bricks = this.physics.add.staticGroup({
             key: 'assets', frame: [ 'blue1', 'red1', 'green1', 'yellow1', 'silver1', 'purple1' ],
             frameQuantity: 10,
-            gridAlign: { width: 10, height: 6, cellWidth: 64, cellHeight: 32, x: 112, y: 100 }
+            gridAlign: { width: 10, height: 6, cellWidth: 64, cellHeight: 32, x: 5, y: 100 }
         });
 
         this.ball = this.physics.add.image(400, 500, 'assets', 'ball1').setCollideWorldBounds(true).setBounce(1);
@@ -123,11 +123,19 @@
         }
     }
 }
+const width = window.innerWidth;
+const height = window.innerHeight;
 
 const config = {
     type: Phaser.WEBGL,
-    width: 800,
-    height: 600,
+    width: width,
+    height: height,
+    scale:{//배율설정
+        mode:Phaser.Scale.FIT,//자동맞춤
+        autoCenter:Phaser.Scale.CENTER_BOTH,//가로세로 모두맞춤
+        width:width,//비율설정용 폭
+        height:height,//비율설정용 높이
+    },
     parent: 'phaser-example',
     scene: [ Breakout ],
     physics: {
