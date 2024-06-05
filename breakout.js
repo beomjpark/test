@@ -21,11 +21,18 @@
         this.physics.world.setBoundsCollision(true, true, true, false);
 
         //  Create the bricks in a 10x6 grid
-        this.bricks = this.physics.add.staticGroup({
-            key: 'assets', frame: [ 'blue1', 'red1', 'green1', 'yellow1', 'silver1', 'purple1' ],
-            frameQuantity: 10,
-            gridAlign: { width: 10, height: 6, cellWidth: 64, cellHeight: 32, x: 5, y: 100 }
-        });
+        // this.bricks = this.physics.add.staticGroup({
+        //     key: 'assets', frame: [ 'blue1', 'red1', 'green1'], // 'yellow1', 'silver1', 'purple1' 
+        //     frameQuantity: 10,
+        //     gridAlign: { width: 10, height: 10, cellWidth: 32, cellHeight: 32, x: 5, y: 100 }
+        // });
+        // for(var y = 0; y < 4; y++)
+        // {
+        //     for(var x = 0; x < 4; x++)
+        //     {
+        //         brick = bricks.create(5 + (x * 64), 100 + (y * 32), 'assets', 'green');
+        //     }
+        // }
 
         this.ball = this.physics.add.image(400, 500, 'assets', 'ball1').setCollideWorldBounds(true).setBounce(1);
         this.ball.setData('onPaddle', true);
@@ -123,8 +130,8 @@
         }
     }
 }
-const width = window.innerWidth;
-const height = window.innerHeight;
+const width = 384;//window.innerWidth;
+const height = 576;//window.innerHeight;
 
 const config = {
     type: Phaser.WEBGL,
